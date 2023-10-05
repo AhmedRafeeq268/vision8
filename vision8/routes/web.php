@@ -2,6 +2,7 @@
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\Site1Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +47,5 @@ Route::prefix('customers')->name('customers.')->group(function (){
     Route::get('/',[CustomersController::class,'index'])->name('index');
     Route::get('/profile',[CustomersController::class,'profile'])->name('profile');
 });
+
+Route::get('site1/new/test',[Site1Controller::class,'index'])->name('site1');

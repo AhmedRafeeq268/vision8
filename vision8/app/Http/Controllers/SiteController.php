@@ -21,7 +21,10 @@ class SiteController extends Controller
 
 
 public function index(){
-    return 'index page';
+    $name = 'ali';
+    $text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, natus.';
+//    return view('test')->with('name',$name)->with('text',$text);
+    return view('test',compact('name','text'));
 }
 public function about(){
     return 'about page';
