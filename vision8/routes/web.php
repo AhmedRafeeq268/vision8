@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +32,17 @@ Route::get('/user/posts/{postid}/mycomments/{commentid}/show',function ($postid,
     return "user post $postid comment $commentid";
 })->name('userinfo');
 
-Route::get('/SiteController',[SiteController::class, 'index'])->name('home');
+//Route::get('/SiteController',[SiteController::class, 'index'])->name('home');
 
+Route::get('/',[SiteController::class, 'index'])->name('index');
+Route::get('/about',[SiteController::class, 'about'])->name('about');
+Route::get('/contact',[SiteController::class, 'contact'])->name('contact');
+Route::get('/user/{id}',[SiteController::class, 'user'])->name('user');
 
+Route::get('/index',[AdminController::class,'index'])->name('index');
+Route::get('/product',[AdminController::class,'product'])->name('product');
+
+Route::prefix('customers')->name('customers.')->group(function (){
+    Route::get('/',[CustomersController::class,'index'])->name('index');
+    Route::get('/profile',[CustomersController::class,'profile'])->name('profile');
+});
